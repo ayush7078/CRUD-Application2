@@ -1,0 +1,21 @@
+/* App.css */
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.add-user-button {
+  display: block;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.add-user-button:hover {
+  background-color: #0056b3;
+}

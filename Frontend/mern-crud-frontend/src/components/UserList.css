@@ -1,0 +1,63 @@
+
+
+.user-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f0f0f0; /* Background color for the container */
+  }
+  
+  .user-list {
+    width: 80%; /* Adjust the width of the user list */
+    max-width: 500px; /* Maximum width for the user list */
+    list-style: none;
+    padding: 0;
+  }
+  
+  .user-item {
+    border: 1px solid #ccc;
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #ffffff; /* Background color for each item */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle effect */
+  }
+  
+  .user-item .user-info {
+    display: block; /* Display info in a block */
+    margin-bottom: 10px;
+  }
+  
+ .user-item button {
+    padding: 5px 10px;
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px; /* Add some space between the Edit and Delete buttons */
+  }
+  
+  .user-link:hover, .user-item button:hover {
+    background-color: #cc0000;
+    text-decoration: underline; /* Underline on hover */
+  }
+  
+  .user-item .action-buttons {
+    display: flex;
+  }
+  
+  .user-link {
+    padding: 5px 10px;
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+     margin-top: 100px; 
+     top: 10px;
+    }
+
