@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams} from 'react-router-dom';
-import './UserEdit.css';
+import './TaskEdit.css';
 
 
-const UserEdit = () => {
-  const [user, setUser] = useState({ name: '', fatherName: '', dateOfBirth: '', gender: 'Male' });
+const TaskEdit = () => {
+  const [task, setTask] = useState({ task: '', description: ''});
   const navigate = useNavigate();
   const { id } = useParams();
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/users/${id}`)
+    axios.get(`http://localhost:5000/tasks/${id}`)
       .then(response => {
-        setUser(response.data);
+        setTask(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -21,12 +21,12 @@ const UserEdit = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setUser({ ...user, [name]: value });
+    setTask({ ...task, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post(`http://localhost:5000/users/update/${id}`, user)
+    axios.post(`http://localhost:5000/tasks/update/${id}`, task)
       .then(() => navigate('/'))
       .catch(err => console.log('Error: ' + err));
   };
@@ -44,37 +44,27 @@ const UserEdit = () => {
 
   return (
     <div>
-      <h2>Update User</h2>
+      <h2>Update Task</h2>
       <form onSubmit={handleSubmit} className="user-form">
         <input
           type="text"
           name="name"
-          placeholder="User Name"
-          value={user.name}
+          placeholder="Task"
+          value={task.task}
           onChange={handleChange}
         />
         <input
           type="text"
-          name="fatherName"
-          placeholder="Father Name"
-          value={user.fatherName}
+          name="description"
+          placeholder="Description"
+          value={task.description}
           onChange={handleChange}
         />
-        <input
-          type="date"
-          name="dateOfBirth"
-          value={user.dateOfBirth}
-          onChange={handleChange}
-        />
-        <select name="gender" value={user.gender} onChange={handleChange}>
-        <option value="Select">Select</option>  
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-        </select>
-        <button type="submit">Update User</button>
+     
+        <button type="submit">Update Task</button>
       </form>
     </div>
   );
 };
 
-export default UserEdit;
+export default TaskEdit;
